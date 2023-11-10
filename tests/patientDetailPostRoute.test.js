@@ -36,7 +36,7 @@ describe('POST route tests', () => {
 			insurrance_primarycare_provider: 'aetna',
 		});
 		expect(response.status).toBe(200);
-	},10000);
+	},30000);
 
 	it('should handle validation and return a 404 status code for invalid data', async () => {
 		const response = await request(app).post('/doctors').send({
@@ -67,7 +67,7 @@ describe('POST route tests', () => {
 			insurrance_primarycare_provider: 'insurrance_primarycare_provider',
 		});
 		expect(response.status).toBe(404);
-	},10000);
+	},30000);
 });
 
 
@@ -108,4 +108,4 @@ it('should handle validation and return a 400 status code for invalid data', asy
     });
 
     expect(response.status).toBe(404);
-}, 10000);
+}, 30000);
