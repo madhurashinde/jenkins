@@ -4,7 +4,6 @@ const app = require('../app');
 describe('GET route tests', () => {
 	it('should return a 200 status code and valid response for GET route', async () => {
 		const response = await request(app).get('/patients');
-		console.log(response.status);
 		expect(response.statusCode).toBe(200);
 	},50000);
 
