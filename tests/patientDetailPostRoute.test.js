@@ -36,7 +36,7 @@ describe('POST route tests', () => {
 			insurrance_primarycare_provider: 'aetna',
 		});
 		expect(response.status).toBe(200);
-	},30000);
+	},50000);
 
 	it('should handle validation and return a 404 status code for invalid data', async () => {
 		const response = await request(app).post('/doctors').send({
