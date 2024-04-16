@@ -1,6 +1,7 @@
 const request = require('supertest');
 const app = require('../app');
 
+// Testnig workflow
 describe('GET route tests', () => {
 	it('should return a 200 status code and valid response for GET route', async () => {
 		const response = await request(app).get('/patients');
