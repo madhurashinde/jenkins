@@ -5,23 +5,27 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the source code from the repository
-                git url: 'https://github.com/YashBharambay/github-actions'
+                git url: 'https://github.com/YashBharambay/github-actions', branch: 'main'
             }
         }
-        stage('Build') {
+        stage('Setup Node.js') {
             steps {
-                // Execute any necessary build steps
-                // For UI tests, this might involve building the application
-                echo "Building.."
-                sh 'npm install' // Or any other build command
+                // Install Node.js using Node.js tool installer
+                // You may need to configure Node.js installations in Jenkins Global Tool Configuration
+                // Replace 'nodejs' with the name of your configured Node.js installation
+                tool name: 'nodejs', type: 'org.jenkinsci.plugins.tools.ToolInstallation'
             }
         }
-        stage('Test') {
+        stage('Install dependencies') {
             steps {
-                // Execute the UI tests defined in ui.yml
-                // Replace this command with your actual test command
-                echo "Testing.."
-                sh 'npm test --file ui.yml'
+                // Execute npm install to install project dependencies
+                sh 'npm install'
+            }
+        }
+        stage('Run server tests') {
+            steps {
+                // Execute npm test to run server tests
+                sh 'npm test'
             }
         }
     }
