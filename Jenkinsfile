@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the source code from the repository
-                git url: 'https://github.com/YashBharambay/github-actions', branch: 'main'
+                git url: 'https://github.com/madhurashinde/github-actions', branch: 'main'
             }
         }
         stage('Setup Node.js') {
