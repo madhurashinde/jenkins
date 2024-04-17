@@ -15,9 +15,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                chmod +x ./jenkins/scripts/test.sh
-                sh './jenkins/scripts/test.sh'
+                script {
+                    echo "Changing permissions of test.sh"
+                    sh 'chmod +x ./jenkins/scripts/test.sh'
+                    echo "Executing test.sh"
+                    sh './jenkins/scripts/test.sh'
+                }
             }
-    }
+        }
 }
 }
